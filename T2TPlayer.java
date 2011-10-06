@@ -8,23 +8,26 @@ package pdgame;
  *
  * @author Yinyue Hu
  */
-public class T4TPlayer extends BasicPlayer {
-
-    int oppLastMove=GameMove.COOPERATE;
+public class T2TPlayer extends BasicPlayer{
     
-    public T4TPlayer() {
-        myID="T4T Player";
+  
+    int oppLastMove=GameMove.COOPERATE;
+    int oppSecondLastMove=GameMove.COOPERATE;
+    
+    public T2TPlayer() {
+        myID="T2T Player";
     }
 
     public int makeMove() {
-        if (oppLastMove==GameMove.COOPERATE)
-                return GameMove.COOPERATE;
-        else
+        if (oppLastMove==GameMove.DEFECT && oppSecondLastMove==GameMove.DEFECT)
                 return GameMove.DEFECT;
+        else
+                return GameMove.COOPERATE;
     }
 
     @Override
     public void setScore(int myMove, int oppMove, int myScore, int oppScore, String oppID) {
+        oppSecondLastMove=oppLastMove;
         oppLastMove=oppMove;
         super.setScore(myMove,oppMove,myScore,oppScore,oppID);
     }

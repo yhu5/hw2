@@ -4,6 +4,7 @@
  */
 package pdgame;
 import java.util.ArrayList;
+
 /**
  *
  * @author Yinyue Hu
@@ -18,10 +19,8 @@ public class Main {
         players.add(new T4TPlayer());
         players.add(new ALLDPlayer());
         players.add(new PavlovPlayer());
-        players.add(new RandomPlayer());
-        players.add(new T4TPlayer());
-        players.add(new ALLDPlayer());
-        players.add(new PavlovPlayer());
+        players.add(new T2TPlayer());
+        players.add(new ALLCPlayer());
     }
 
     public void roundRobin() {
@@ -29,8 +28,12 @@ public class Main {
         for (Player p1: players) {
             for (Player p2: players) {
                 if (p1==p2) continue;
-
-                dredd.playMatch(p1, p2, 20);
+                
+                p1.setMatchScore(0);
+                p2.setMatchScore(0);
+                dredd.playMatch(p1, p2, 10);
+                //--------------------------
+                System.out.println(p1.getID()+"\t"+p2.getID()+"\t"+p1.getScore()+"\t"+p2.getScore());
             }
         }
     }

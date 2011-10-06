@@ -12,8 +12,10 @@ public interface Player {
     
     String getID();
     int makeMove();
+    void setMatchScore(int score);
     void setScore(int myMove, int oppMove, int myScore, int oppScore, String oppID);
     String toString();
+    int getScore();
 
 }
 

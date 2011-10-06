@@ -12,7 +12,7 @@ public class PavlovPlayer extends BasicPlayer{
     int oppLastMove=GameMove.COOPERATE;
     int myLastMove=GameMove.COOPERATE;
     public PavlovPlayer() {
-        myID="Pavlo Player";
+        myID="Pavlov Player";
     }
     public int makeMove() {
         if (oppLastMove==myLastMove)
